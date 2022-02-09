@@ -4,67 +4,76 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
+## React SPA Example App with SSO powered by WorkOS
 
-### `npm start`
+An example application demonstrating how to use the  [WorkOS Node SDK](https://github.com/workos-inc/workos-node) to authenticate users via SSO. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Prerequisites
+Node.js version 10+
+A free Netlify account which can be obtained [here](https://netlify.com). 
 
-### `npm test`
+# Project Setup
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Install the Netlify CLI 
+    ```bash
+        npm install netlify-cli --global
+    ```
+    If you run into permissions errors, run with sudo. 
+    ```bash
+       sudo npm install netlify-cli --global
+    ```
+    Verify that the package installed by running the following. You may need to use sudo with netlfiy commands. 
+    ```bash
+        netlify --version
+    ```
+2. Log in to your Netlify account using the Netlify CLI. 
+    ```bash
+        netlify login
+    ```
+    This should launch a new window that offers several authentication options. Authorize the CLI. You should see "You are now logged in to your Netlify account" in the terminal. 
 
-### `npm run build`
+3. Initialize the project so you can run the serverless functions. 
+    ```bash
+        netlify init
+    ```
+    Use the default options for most settings except the following:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    -Select the account/team and create a new site. 
+    -Ensure that the "Directory to deploy" is set to "public". 
+    -Select no when prompted if you'd like to create a netlify.toml file, since it already exists in the project. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. Install the rest of the dependencies using npm. 
+    ```bash
+        npm install
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Configure your environment
 
-### `npm run eject`
+5. Obtain your API Key and Client ID from your WorkOS dashboard. Create a .env file at the root of this project, on the same level as the src folder. Store these variables, along with the localhost url in the .env file. 
+    ```bash
+        WORKOS_API_KEY=the_api_key_value
+        WORKOS_CLIENT_ID=the_client_id_value
+        BASE_APP_URL=http://localhost:8888
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# SSO Setup with WorkOS
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+6. This project is set up to log in using Google OAuth. Follow [the documentation here](https://workos.com/docs/integrations/g-suite-oauth) to complete the setup on the Configuration tab of the WorkOS dashboard. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+7. Add the Redirect URI to the allowlist in your WorkOS dashboard Configuration tab. For local development, the redirect URI will be:
+    ```bash
+        http://localhost:8888
+    ```
+In a deployed application the Redirect URI would be the base url for your site. 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Start the server
 
-## Learn More
+8. Run the server using the following command. You may need to preface the command with sudo if you run into issues. 
+    ```bash
+        netlify dev
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Need help?
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If you get stuck and aren't able to resolve the issue by reading our documentation, API reference, or tutorials, you can reach out to us at support@workos.com and we'll lend a hand.
