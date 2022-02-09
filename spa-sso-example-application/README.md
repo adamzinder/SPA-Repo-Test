@@ -1,9 +1,3 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
 ## React SPA Example App with SSO powered by WorkOS
 
 An example application demonstrating how to use the  [WorkOS Node SDK](https://github.com/workos-inc/workos-node) to authenticate users via SSO. 
