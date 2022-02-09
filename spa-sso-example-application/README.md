@@ -1,14 +1,14 @@
-## React SPA Example App with SSO powered by WorkOS
+# React SPA Example App with SSO powered by WorkOS
 
 An example application demonstrating how to use the  [WorkOS Node SDK](https://github.com/workos-inc/workos-node) to authenticate users via SSO. 
 
 
-# Prerequisites
+## Prerequisites
 -Node.js version 10+
 
 -A free Netlify account which can be obtained [here](https://netlify.com). 
 
-# Project Setup
+## Project Setup
 1. Clone this repository using either HTTPS or SSH: 
     ```bash
     # HTTPS
@@ -61,7 +61,7 @@ An example application demonstrating how to use the  [WorkOS Node SDK](https://g
         npm install
     ```
 
-# Configure your environment
+## Configure your environment
 
 5. Obtain your API Key and Client ID from your WorkOS dashboard. Create a .env file at the root of this project, on the same level as the src folder. Store these variables, along with the localhost url in the .env file. 
     ```bash
@@ -70,7 +70,7 @@ An example application demonstrating how to use the  [WorkOS Node SDK](https://g
         BASE_APP_URL=http://localhost:8888
     ```
 
-# SSO Setup with WorkOS
+## SSO Setup with WorkOS
 
 6. This project is set up to log in using Google OAuth. Follow [the documentation here](https://workos.com/docs/integrations/g-suite-oauth) to complete the setup on the Configuration tab of the WorkOS dashboard. 
 
@@ -81,7 +81,7 @@ An example application demonstrating how to use the  [WorkOS Node SDK](https://g
     ```
 In a deployed application the Redirect URI would be the base url for your site. 
 
-# Start the server
+## Start the server
 
 8. Run the server using the following command. You may need to preface the command with sudo if you run into issues. 
     
