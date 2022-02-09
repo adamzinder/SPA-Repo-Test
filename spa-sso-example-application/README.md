@@ -10,20 +10,35 @@ An example application demonstrating how to use the  [WorkOS Node SDK](https://g
 
 
 # Prerequisites
-Node.js version 10+
-A free Netlify account which can be obtained [here](https://netlify.com). 
+-Node.js version 10+
+
+-A free Netlify account which can be obtained [here](https://netlify.com). 
 
 # Project Setup
+1. Clone this repository using either HTTPS or SSH: 
+    ```bash
+    # HTTPS
+    git clone https://github.com/workos-inc/spa-react-example-applications.git
+    ```
+    or
+
+    ```bash
+    # SSH
+    git clone git@github.com:workos-inc/spa-react-example-applications.git
+    ```
 
 1. Install the Netlify CLI 
+    
     ```bash
         npm install netlify-cli --global
     ```
     If you run into permissions errors, run with sudo. 
+    
     ```bash
        sudo npm install netlify-cli --global
     ```
     Verify that the package installed by running the following. You may need to use sudo with netlfiy commands. 
+    
     ```bash
         netlify --version
     ```
@@ -34,16 +49,20 @@ A free Netlify account which can be obtained [here](https://netlify.com).
     This should launch a new window that offers several authentication options. Authorize the CLI. You should see "You are now logged in to your Netlify account" in the terminal. 
 
 3. Initialize the project so you can run the serverless functions. 
+    
     ```bash
         netlify init
     ```
     Use the default options for most settings except the following:
 
     -Select the account/team and create a new site. 
+
     -Ensure that the "Directory to deploy" is set to "public". 
+
     -Select no when prompted if you'd like to create a netlify.toml file, since it already exists in the project. 
 
 4. Install the rest of the dependencies using npm. 
+    
     ```bash
         npm install
     ```
@@ -62,6 +81,7 @@ A free Netlify account which can be obtained [here](https://netlify.com).
 6. This project is set up to log in using Google OAuth. Follow [the documentation here](https://workos.com/docs/integrations/g-suite-oauth) to complete the setup on the Configuration tab of the WorkOS dashboard. 
 
 7. Add the Redirect URI to the allowlist in your WorkOS dashboard Configuration tab. For local development, the redirect URI will be:
+    
     ```bash
         http://localhost:8888
     ```
@@ -70,9 +90,11 @@ In a deployed application the Redirect URI would be the base url for your site.
 # Start the server
 
 8. Run the server using the following command. You may need to preface the command with sudo if you run into issues. 
+    
     ```bash
         netlify dev
     ```
+    A new browser window will automatically open to http://localhost:8888 with the app running. 
 
 ## Need help?
 
